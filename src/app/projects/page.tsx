@@ -1,11 +1,11 @@
 import Navbar from '@/components/layout/Navbar';
-import Hero from '@/components/sections/Hero';
+import Projects from '@/components/sections/Projects';
 
-export default function Home() {
+export default function ProjectsPage() {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-900">
       <Navbar />
-      <Hero />
+      <Projects />
     </main>
   );
-}
+} 
