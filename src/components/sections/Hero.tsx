@@ -62,7 +62,7 @@ const Hero = () => {
           <div className="p-1 rounded-3xl bg-gradient-to-tr from-blue-400 via-purple-400 to-pink-400 shadow-2xl w-72 h-96 md:w-80 md:h-[28rem]">
             <div className="rounded-3xl bg-white/20 dark:bg-gray-900/30 backdrop-blur-xl w-full h-full flex items-center justify-center overflow-hidden">
               <Image
-                src="/images/profile2.jpg"
+                src="/images/profile2.JPG"
                 alt="Anelise Estevam - Full Stack Developer"
                 width={320}
                 height={420}

@@ -5,7 +5,7 @@ const projects = [
   {
     title: 'TodaEscola',
     description: 'A comprehensive educational management system with QR Code check-in, advanced analytics, and parent portal. Modern technology transforming the educational experience.',
-    image: '/images/todaescola.png',
+    image: '/images/TodaEscola.png',
     tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Vercel'],
     github: '',
     demo: 'https://todaescola.vercel.app',
@@ -14,7 +14,7 @@ const projects = [
   {
     title: 'E-commerce Platform',
     description: 'A scalable e-commerce platform with custom admin and payment integration.',
-    image: '/images/project2.jpg',
+    image: '/images/project2.JPG',
     tech: ['React', 'Node.js', 'Stripe'],
     github: 'https://github.com/aneliseestevam/ecommerce',
     demo: 'https://ecommerce-demo.com',
