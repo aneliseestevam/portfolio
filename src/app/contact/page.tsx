@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from '@/components/layout/Navbar';
 import Link from 'next/link';
 import { useState } from 'react';
