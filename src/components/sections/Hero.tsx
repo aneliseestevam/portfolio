@@ -28,7 +28,7 @@ const Hero = () => {
             I build exceptional digital experiences that make an impact. Specializing in creating beautiful, functional, and user-centered websites and applications.
           </p>
           <div className="flex flex-wrap gap-4 mb-2">
-            <Link href="#contact" className="inline-flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full font-semibold shadow-md hover:scale-105 hover:from-blue-600 hover:to-purple-600 transition-transform duration-200">
+            <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full font-semibold shadow-md hover:scale-105 hover:from-blue-600 hover:to-purple-600 transition-transform duration-200">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21 10.5V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2h7.5" /></svg>
               Contact Me
             </Link>
