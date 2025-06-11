@@ -1,5 +1,6 @@
 import Navbar from '@/components/layout/Navbar';
 import Link from 'next/link';
+import { useState } from 'react';
 
 const socialLinks = [
   { href: 'https://github.com/aneliseestevam', icon: 'github', label: 'GitHub' },
@@ -7,13 +8,38 @@ const socialLinks = [
 ];
 
 export default function ContactPage() {
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus('idle');
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        setStatus('success');
+        form.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  }
+
   return (
     <main className="min-h-screen bg-white dark:bg-gray-900">
       <Navbar />
       <section className="max-w-2xl mx-auto px-4 py-24">
         <h1 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-8 text-center">Contact</h1>
         <div className="bg-white/10 dark:bg-gray-900/40 rounded-2xl shadow-xl p-8 md:p-12 border border-white/10">
-          <form className="flex flex-col gap-6">
+          <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="name" className="block text-gray-700 dark:text-gray-200 font-semibold mb-2">Name</label>
               <input id="name" name="name" type="text" required className="w-full px-4 py-3 rounded-lg bg-white/80 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-900 dark:text-gray-100" />
@@ -28,6 +54,8 @@ export default function ContactPage() {
             </div>
             <button type="submit" className="w-full py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold text-lg shadow-md hover:from-blue-600 hover:to-purple-600 transition-colors">Send Message</button>
           </form>
+          {status === 'success' && <p className="mt-6 text-green-500 text-center font-semibold">Message sent! Thank you for reaching out.</p>}
+          {status === 'error' && <p className="mt-6 text-red-500 text-center font-semibold">Something went wrong. Please try again later.</p>}
           <div className="mt-10 text-center">
             <p className="text-gray-400 mb-4">Or reach me on:</p>
             <div className="flex justify-center gap-6">
